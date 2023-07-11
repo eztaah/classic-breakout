@@ -7,8 +7,8 @@ class Ball
         float y;
         float speedX;
         float speedY;
-        float height;
-        float width;
+        int height;
+        int width;
     
         Ball();
         void Update();

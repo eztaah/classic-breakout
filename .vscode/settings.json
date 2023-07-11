@@ -1,6 +1,7 @@
 {
 	"files.exclude": {
-		"**/.git": false,
+		"**/.git": true,
+		"**/.gitattributes": true,
 		"**/.svn": false,
 		"**/.hg": false,
 		"**/CVS": false,

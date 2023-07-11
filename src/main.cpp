@@ -9,7 +9,7 @@ int main()
 {
     InitWindow(screenWidth, screenHeight, "Breakout");
     SetWindowState(FLAG_VSYNC_HINT);
-    Game game = Game();
+    Game game = Game();     // ou Game game{};
 
     while (!WindowShouldClose())
     {
