@@ -15,7 +15,7 @@ Game::Game()
     InitBricks();
 
     // get the best score
-    std::ifstream fichier{"user/best_score.txt"}; 
+    std::ifstream fichier{"best_score.txt"}; 
     fichier >> bestScoreStr;
     bestScore = std::stoi(bestScoreStr);
     fichier.close();
@@ -80,7 +80,7 @@ void Game::GameOver()
         scoreStr = std::to_string(score);
         
         // open file
-        std::ofstream fichier{"user/best_score.txt"};
+        std::ofstream fichier{"best_score.txt"};
         if(fichier.is_open()) {
             fichier << score;
         }
@@ -106,7 +106,7 @@ void Game::Restart()
 	};
 
     // get the best score
-    std::ifstream fichier{"user/best_score.txt"}; 
+    std::ifstream fichier{"best_score.txt"}; 
     fichier >> bestScoreStr;
     bestScore = std::stoi(bestScoreStr);
     fichier.close();
