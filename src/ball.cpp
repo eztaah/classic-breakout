@@ -1,5 +1,5 @@
 #include "ball.hpp"
-#include <raylib.h>
+#include <raylib.hpp>
 
 
 Ball::Ball()

@@ -1,5 +1,5 @@
 #include "paddle.hpp"
-#include <raylib.h>
+#include <raylib.hpp>
 
 
 Paddle::Paddle()

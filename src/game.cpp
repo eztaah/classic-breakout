@@ -3,7 +3,7 @@
 #include "paddle.hpp"
 #include "library.hpp"
 #include "brick.hpp"
-#include <raylib.h>
+#include <raylib.hpp>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -104,29 +104,29 @@ void Game::GameOver()
 
 void Game::Restart() 
 {
-    // Reset ball, paddle and score
-    ball.x = GetScreenWidth() / 2;
-	ball.y = GetScreenHeight() / 2;
-    paddle.x = (GetScreenWidth() / 2) - paddle.width / 2;
-    score = 0;
-    scoreStr = "0";
+    // // Reset ball, paddle and score
+    // ball.x = GetScreenWidth() / 2;
+	// ball.y = GetScreenHeight() / 2;
+    // paddle.x = (GetScreenWidth() / 2) - paddle.width / 2;
+    // score = 0;
+    // scoreStr = "0";
 
-    //reset bricks
-	for (unsigned int n{0}; n < bricksPerColumns*bricksPerLine; ++n) 
-	{
-        if((bricks[n].x >= 2000))
-        {
-            bricks[n].x -= 2000;
-        }
-	};
+    // //reset bricks
+	// for (unsigned int n{0}; n < bricksPerColumns*bricksPerLine; ++n) 
+	// {
+    //     if((bricks[n].x >= 2000))
+    //     {
+    //         bricks[n].x -= 2000;
+    //     }
+	// };
 
-    // get the best score
-    std::ifstream fichier{"best_score.txt"}; 
-    fichier >> bestScoreStr;
-    bestScore = std::stoi(bestScoreStr);
-    fichier.close();
+    // // get the best score
+    // std::ifstream fichier{"best_score.txt"}; 
+    // fichier >> bestScoreStr;
+    // bestScore = std::stoi(bestScoreStr);
+    // fichier.close();
 
-    running = true;
+    // running = true;
 }
 
 
@@ -156,31 +156,31 @@ void Game::CheckCollisionBallWall()
 
 void Game::CheckCollisionBallPaddle()
 {
-    if (CheckCollisionRecs(ball.GetRectangle(), paddle.GetRectangle()))
-    {
-        if (ball.speedY > 0) //prevent the ball from boncing inside the paddle
-        {
-            ball.speedY *= -1;
-            if (ball.x - paddle.x < paddle.width/2) {
-                ball.speedX = -10 * myUtils::abs(ball.x - paddle.x - paddle.width/2) ;
-            }
-            else {
-                ball.speedX = 10 * myUtils::abs(ball.x - paddle.x - paddle.width/2);
-            }
-        };
-    };
+    // if (CheckCollisionRecs(ball.GetRectangle(), paddle.GetRectangle()))
+    // {
+    //     if (ball.speedY > 0) //prevent the ball from boncing inside the paddle
+    //     {
+    //         ball.speedY *= -1;
+    //         if (ball.x - paddle.x < paddle.width/2) {
+    //             ball.speedX = -10 * myUtils::abs(ball.x - paddle.x - paddle.width/2) ;
+    //         }
+    //         else {
+    //             ball.speedX = 10 * myUtils::abs(ball.x - paddle.x - paddle.width/2);
+    //         }
+    //     };
+    // };
 }
 
 void Game::CheckCollisionBallBrick()
 {
-    for (unsigned int k{0}; k < bricksPerLine*bricksPerColumns; ++k)
-    {
-        if (CheckCollisionRecs(Rectangle{ball.x, ball.y, ball.width, ball.height }, Rectangle{bricks[k].x - xGapBetweenBricks/2, bricks[k].y- yGapBetweenBricks/2, bricks[k].width + xGapBetweenBricks/2, bricks[k].height + yGapBetweenBricks/2}))
-        {
-            ball.speedY *= -1;
-            bricks[k].x += 2000;
-            ++score;
-            scoreStr = std::to_string(score);
-        }
-    };
+    // for (unsigned int k{0}; k < bricksPerLine*bricksPerColumns; ++k)
+    // {
+    //     if (CheckCollisionRecs(Rectangle{ball.x, ball.y, ball.width, ball.height }, Rectangle{bricks[k].x - xGapBetweenBricks/2, bricks[k].y- yGapBetweenBricks/2, bricks[k].width + xGapBetweenBricks/2, bricks[k].height + yGapBetweenBricks/2}))
+    //     {
+    //         ball.speedY *= -1;
+    //         bricks[k].x += 2000;
+    //         ++score;
+    //         scoreStr = std::to_string(score);
+    //     }
+    // };
 }

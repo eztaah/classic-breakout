@@ -1,5 +1,5 @@
 #include "brick.hpp"
-#include <raylib.h>
+#include <raylib.hpp>
 #include <iostream>
 
 
