@@ -1,12 +1,13 @@
+#include "game.hpp"
+#include "ball.hpp"
+#include "paddle.hpp"
+#include "library.hpp"
+#include "brick.hpp"
 #include <raylib.h>
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "../include/ball.hpp"
-#include "../include/paddle.hpp"
-#include "../include/game.hpp"
-#include "../include/library.hpp"
-#include "../include/brick.hpp"
+
 
 
 

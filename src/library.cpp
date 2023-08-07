@@ -1,4 +1,4 @@
-#include "../include/library.hpp"
+#include "library.hpp"
 #include <cmath>
 #include <cstdlib>
 #include <iostream>

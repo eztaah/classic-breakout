@@ -1,4 +1,4 @@
-#include "../include/paddle.hpp"
+#include "paddle.hpp"
 #include <raylib.h>
 
 Paddle::Paddle()

@@ -1,5 +1,5 @@
+#include "game.hpp"
 #include <raylib.h>
-#include "../include/game.hpp"
 
 // VARIABLES AND FUNCTIONS
 const unsigned int screenWidth = 700;

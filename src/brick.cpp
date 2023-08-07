@@ -1,6 +1,7 @@
-#include "../include/brick.hpp"
-#include <iostream>
+#include "brick.hpp"
 #include <raylib.h>
+#include <iostream>
+
 
 Brick::Brick()
 {

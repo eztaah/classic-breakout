@@ -1,5 +1,4 @@
 #pragma once
-
 #include "ball.hpp"
 #include "paddle.hpp"
 #include "brick.hpp"
