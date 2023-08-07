@@ -2,15 +2,22 @@
 
 class Ball
 {
-    public:
-        float x;
-        float y;
-        float speedX;
-        float speedY;
-        float height;
-        float width;
-    
-        Ball();
-        void Update();
-        void Draw();
+public:
+    Ball();
+    void Update();
+    void Draw();
+
+    // Encapsulation
+    Rectangle GetRectangle();
+    Vector2 GetSpeed();
+    void SetXPosition(float x);
+    void SetYPosition(float y);
+    void SetXSpeed(float x);
+    void SetYSpeed(float y);
+
+private:
+    Vector2 position;
+    Vector2 speed;
+    float width;
+    float height;
 };

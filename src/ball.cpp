@@ -4,24 +4,35 @@
 
 Ball::Ball()
 {
-    x = GetScreenWidth() / 3;
-	y = GetScreenHeight() / 2;
-	speedX = 100;
-	speedY = 400;
-	width = 7;
-	height = 7;
+    position = {GetScreenWidth() / 3.0f, GetScreenHeight() / 2.0f};
+    speed = {100.0f, 400.0f};
+	width = 7.0f;
+	height = 7.0f;
 }
 
 
 void Ball::Update()
 {
-    // position
-    x += speedX * GetFrameTime();
-    y += speedY * GetFrameTime();
+    position.x += speed.x * GetFrameTime();
+    position.y += speed.y * GetFrameTime();
 }
 
 
 void Ball::Draw()
 {
-    DrawRectangle(x, y, width, height, WHITE);
+    DrawRectangle(position.x, position.y, width, height, WHITE);
 }
+
+
+// Encapsulation
+Rectangle Ball::GetRectangle() { return {position.x, position.y, width, height}; }
+
+Vector2 Ball::GetSpeed() { return speed; }
+
+void Ball::SetXPosition(float x) { position.x = x; }
+
+void Ball::SetYPosition(float y) { position.y = y; }
+
+void Ball::SetXSpeed(float x) { speed.x = x; }
+
+void Ball::SetYSpeed(float y) { speed.y = y; }

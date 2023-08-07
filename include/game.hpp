@@ -12,28 +12,26 @@ const unsigned int yGapBetweenBricks{5};
 
 class Game
 {
-    public:
-        Ball ball = Ball();
-        Paddle paddle = Paddle();
-        Brick bricks[bricksPerLine*bricksPerColumns];
+public:
+    Game();
+    void Update();
+    void Draw();
+    void Restart();
+    bool running;
 
-        bool running{true};
+private:
+    void CheckCollisionBallWall();
+    void CheckCollisionBallPaddle();
+    void CheckCollisionBallBrick();
+    void InitBricks();
+    void GameOver();
 
-        unsigned int score{0};
-        std::string scoreStr{"0"};
+    Ball ball;
+    Paddle paddle;
+    Brick bricks[bricksPerLine*bricksPerColumns];
 
-        unsigned int bestScore;
-        std::string bestScoreStr{""};
-
-        Game();
-        void InitBricks();
-        void Draw();
-        void Update();
-
-        void CheckCollisionBallWall();
-        void CheckCollisionBallPaddle();
-        void CheckCollisionBallBrick();
-
-        void GameOver();
-        void Restart();
+    unsigned int score;
+    std::string scoreStr;
+    unsigned int bestScore;
+    std::string bestScoreStr;
 };

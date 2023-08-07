@@ -9,32 +9,56 @@
 #include <iostream>
 
 
-
-
 Game::Game()
 {
+    ball = Ball();
+    paddle = Paddle();
+
+    running = true;
+    score = 0;
+    scoreStr = "0";
+    bestScore = 0;
+    bestScoreStr = "";
+
     InitBricks();
 
     // get the best score
-    std::ifstream fichier{"best_score.txt"}; 
+    std::ifstream fichier{"best_score.txt"};
+    std::string value; 
     fichier >> bestScoreStr;
     bestScore = std::stoi(bestScoreStr);
     fichier.close();
 }
 
 
-// MAIN
+void Game::Update()
+{
+    if(running) {
+        CheckCollisionBallWall();
+        CheckCollisionBallPaddle();
+        CheckCollisionBallBrick();
+        ball.Update();
+        paddle.Update();
+    };
+}
+
+
 void Game::Draw()
 {
+    BeginDrawing();
+    ClearBackground(BLACK);
+
     // Draw paddle
     paddle.Draw();
+
+    // Draw bricks
+    for (unsigned int k{0}; k < bricksPerLine*bricksPerColumns; ++k) {
+        bricks[k].Draw(k);
+    };
 
     // draw score & best score
     DrawText(scoreStr.c_str(), 330, 30, 30, WHITE);
     DrawText(("Best score : " + bestScoreStr).c_str(), 10, 30, 20, RED);
-
-    // Draw bricks
-    for (unsigned int k{0}; k < bricksPerLine*bricksPerColumns; ++k) { bricks[k].Draw(k); };
 
     if(running) {
         // Draw ball
@@ -44,17 +68,7 @@ void Game::Draw()
         DrawText("game over", 200, 350, 60, YELLOW);
         DrawText("press space to restart", 200, 430, 20, YELLOW);
     }
-}
-
-void Game::Update()
-{
-    if(running) {
-        ball.Update();
-        paddle.Update();
-        CheckCollisionBallWall();
-        CheckCollisionBallPaddle();
-        CheckCollisionBallBrick();
-    };
+    EndDrawing();
 }
 
 
@@ -119,26 +133,30 @@ void Game::Restart()
 // COLLISIONS
 void Game::CheckCollisionBallWall()
 {
-    // wall collisions
-    if (ball.x < 0) {
-        ball.x = 0;
-        ball.speedX *= -1;
-    } else if (ball.x > GetScreenWidth() - ball.width) {
-        ball.x = GetScreenWidth() - ball.width;
-        ball.speedX *= -1;
+    if (ball.GetRectangle().x < 0) 
+    {
+        ball.SetXPosition(0.0f);
+        ball.SetXSpeed(-1 * ball.GetSpeed().x);
+    } 
+    else if (ball.GetRectangle().x > GetScreenWidth() - ball.GetRectangle().width) 
+    {
+        ball.SetXPosition(GetScreenWidth() - ball.GetRectangle().width);
+        ball.SetXSpeed(-1 * ball.GetSpeed().x);
     };
-    if (ball.y < 0) {
-        ball.y = 0;
-        ball.speedY *= -1;
+    if (ball.GetRectangle().y < 0) 
+    {
+        ball.SetYPosition(0.0f);
+        ball.SetYSpeed(-1 * ball.GetSpeed().y);
     }
-    else if (ball.y > GetScreenHeight() - ball.height) {
+    else if (ball.GetRectangle().y > GetScreenHeight() - ball.GetRectangle().height) 
+    {
         GameOver();
     };
 }
 
 void Game::CheckCollisionBallPaddle()
 {
-    if (CheckCollisionRecs(Rectangle{ball.x, ball.y, ball.width, ball.height}, Rectangle{paddle.x, paddle.y, paddle.width, paddle.height}))
+    if (CheckCollisionRecs(ball.GetRectangle(), paddle.GetRectangle()))
     {
         if (ball.speedY > 0) //prevent the ball from boncing inside the paddle
         {

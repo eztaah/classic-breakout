@@ -1,29 +1,28 @@
 #include "paddle.hpp"
 #include <raylib.h>
 
+
 Paddle::Paddle()
 {
-	width = 70;
-	height = 10;
-    x = (GetScreenWidth() / 2) - width / 2;
-	y = GetScreenHeight() - 30;
-    speed = 10;
+    position = {(GetScreenWidth() / 2.0f) - width / 2.0f, GetScreenHeight() - 30.0f};
+    speed = 10.0f;
+	width = 70.0f;
+	height = 10.0f;
 }
 
 
 void Paddle::Update()
 {
-    // move paddle
     if (IsKeyDown(KEY_D)) {
-        x += 600 * GetFrameTime();
+        position.x += 600.0f * GetFrameTime();
     };
     if (IsKeyDown(KEY_A)) {
-        x -= 600 * GetFrameTime();
+        position.x -= 600.0f * GetFrameTime();
     };
 }
 
 
 void Paddle::Draw()
 {
-    DrawRectangle(x, y, width, height, BLUE);
+    DrawRectangle(position.x, position.y, width, height, BLUE);
 }

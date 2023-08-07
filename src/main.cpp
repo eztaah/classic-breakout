@@ -9,12 +9,11 @@ int main()
 {
     InitWindow(screenWidth, screenHeight, "Breakout");
     SetWindowState(FLAG_VSYNC_HINT);
-    Game game = Game();     // ou Game game{};
+
+    Game game = Game();
 
     while (!WindowShouldClose())
     {
-        BeginDrawing();
-
         // update
         game.Update();
 
@@ -24,9 +23,7 @@ int main()
         };
 
         // Drawing
-        ClearBackground(BLACK);
         game.Draw();
-        EndDrawing();
     }
     CloseWindow();
     return 0;
