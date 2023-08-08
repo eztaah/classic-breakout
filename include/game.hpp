@@ -4,11 +4,13 @@
 #include "brick.hpp"
 #include <string>
 
-const unsigned int bricksPerLine{15};
-const unsigned int bricksPerColumns{6};
 
-const unsigned int xGapBetweenBricks{8};
-const unsigned int yGapBetweenBricks{5};
+const unsigned int numberOfColumns {15};
+const unsigned int numberOfLines {6};
+
+const unsigned int xGapBetweenBricks {8};
+const unsigned int yGapBetweenBricks {5};
+
 
 class Game
 {
@@ -20,18 +22,20 @@ public:
     bool running;
 
 private:
-    void CheckCollisionBallWall();
-    void CheckCollisionBallPaddle();
-    void CheckCollisionBallBrick();
+    void DrawScore();
+    std::string GetBestScore();
+    void SetupBestScoreFile();
     void InitBricks();
     void GameOver();
 
+    void ManageCollisionBallWall();
+    void ManageCollisionBallPaddle();
+    void ManageCollisionBallBrick();
+
     Ball ball;
     Paddle paddle;
-    Brick bricks[bricksPerLine*bricksPerColumns];
+    Brick bricks[numberOfLines * numberOfColumns];
 
-    unsigned int score;
-    std::string scoreStr;
-    unsigned int bestScore;
+    int unsigned score;
     std::string bestScoreStr;
 };

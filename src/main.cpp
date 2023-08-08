@@ -1,13 +1,11 @@
 #include "game.hpp"
 #include <raylib.hpp>
+#include <iostream>
 
-// VARIABLES AND FUNCTIONS
-const unsigned int screenWidth = 700;
-const unsigned int screenHeight = 800;
 
 int main()
 {
-    InitWindow(screenWidth, screenHeight, "Breakout");
+    InitWindow(700, 800, "Breakout");
     SetWindowState(FLAG_VSYNC_HINT);
 
     Game game = Game();

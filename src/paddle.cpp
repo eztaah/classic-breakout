@@ -26,3 +26,11 @@ void Paddle::Draw()
 {
     DrawRectangle(position.x, position.y, width, height, BLUE);
 }
+
+
+// Encapsulation
+Rectangle Paddle::GetRectangle() { return {position.x, position.y, width, height}; }
+
+void Paddle::SetXPosition(float x) { position.x = x; }
+
+void Paddle::SetYPosition(float y) { position.y = y; }

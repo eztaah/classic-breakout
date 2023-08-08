@@ -1,13 +1,21 @@
-#pragma once 
+#pragma once
+#include <raylib.hpp> 
 
 class Brick
 {
-    public:
-        float x;
-        float y;
-        float height;
-        float width;
-    
-        Brick();
-        void Draw(unsigned int iterator);
+public:
+    Brick();
+    void Draw() const;
+
+    // Encapsulation
+    Rectangle GetRectangle();
+    void SetColor(Color _color);
+    void SetXPosition(float x);
+    void SetYPosition(float y);
+
+private:
+    Vector2 position;
+    float height;
+    float width;
+    Color color;
 };

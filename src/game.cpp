@@ -7,36 +7,28 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <cmath>
 
 
 Game::Game()
 {
     ball = Ball();
     paddle = Paddle();
+    SetupBestScoreFile();
 
-    running = true;
     score = 0;
-    scoreStr = "0";
-    bestScore = 0;
-    bestScoreStr = "";
-
+    bestScoreStr = GetBestScore();
     InitBricks();
-
-    // get the best score
-    std::ifstream fichier{"best_score.txt"};
-    std::string value; 
-    fichier >> bestScoreStr;
-    bestScore = std::stoi(bestScoreStr);
-    fichier.close();
+    running = true;
 }
 
 
 void Game::Update()
 {
     if(running) {
-        CheckCollisionBallWall();
-        CheckCollisionBallPaddle();
-        CheckCollisionBallBrick();
+        ManageCollisionBallWall();
+        ManageCollisionBallPaddle();
+        ManageCollisionBallBrick();
         ball.Update();
         paddle.Update();
     };
@@ -52,13 +44,13 @@ void Game::Draw()
     paddle.Draw();
 
     // Draw bricks
-    for (unsigned int k{0}; k < bricksPerLine*bricksPerColumns; ++k) {
-        bricks[k].Draw(k);
+    for (unsigned int k{0}; k < numberOfLines * numberOfColumns; ++k) {
+        bricks[k].Draw();
     };
 
-    // draw score & best score
-    DrawText(scoreStr.c_str(), 330, 30, 30, WHITE);
+    // draw best score & score
     DrawText(("Best score : " + bestScoreStr).c_str(), 10, 30, 20, RED);
+    DrawScore();
 
     if(running) {
         // Draw ball
@@ -72,66 +64,63 @@ void Game::Draw()
 }
 
 
-// OTHER
 void Game::InitBricks()
 {
     unsigned int n = 0;
-	for (unsigned int j{0}; j < bricksPerColumns; ++j) 
-	{
-		for (unsigned int i{0}; i < bricksPerLine; ++i) 
-		{
-			bricks[n].x = 10 + i * (bricks[n].width + xGapBetweenBricks);
-			bricks[n].y = 120 + j * (bricks[n].height + yGapBetweenBricks);
+    Color colors[8] = {RED, RED, ORANGE, ORANGE, GREEN, GREEN, YELLOW, YELLOW};
+
+    for (unsigned int l{0}; l < numberOfLines; ++l) 
+    {
+        for (unsigned int c{0}; c < numberOfColumns; ++c) 
+        {
+            bricks[n] = Brick();
+            bricks[n].SetXPosition(10 + c * (bricks[n].GetRectangle().width + xGapBetweenBricks));
+            bricks[n].SetYPosition(120 + l * (bricks[n].GetRectangle().height + yGapBetweenBricks));
+            bricks[n].SetColor(colors[l]);
 			++n;
 		};
 	};
 }
 
+
 void Game::GameOver()
 {
     running = false;
-    if(score > bestScore) {
+    if(score > std::stoi(bestScoreStr)) {
         // convert score to string
-        scoreStr = std::to_string(score);
+        std::string scoreStr = std::to_string(score);
         
         // open file
         std::ofstream fichier{"best_score.txt"};
         if(fichier.is_open()) {
-            fichier << score;
+            fichier << scoreStr;
         }
     }
 }
 
 void Game::Restart() 
 {
-    // // Reset ball, paddle and score
-    // ball.x = GetScreenWidth() / 2;
-	// ball.y = GetScreenHeight() / 2;
-    // paddle.x = (GetScreenWidth() / 2) - paddle.width / 2;
-    // score = 0;
-    // scoreStr = "0";
+    // Reset ball, paddle and score
+    ball.SetXPosition(GetScreenWidth() / 2);
+    ball.SetYPosition(GetScreenHeight() / 2);
+    ball.SetXSpeed(30.0f);
+    ball.SetYSpeed(400.0f);
+    paddle.SetXPosition((GetScreenWidth() / 2) - paddle.GetRectangle().width / 2);
+    score = 0;
+    DrawScore();
 
-    // //reset bricks
-	// for (unsigned int n{0}; n < bricksPerColumns*bricksPerLine; ++n) 
-	// {
-    //     if((bricks[n].x >= 2000))
-    //     {
-    //         bricks[n].x -= 2000;
-    //     }
-	// };
+    //reset bricks
+    InitBricks();
 
-    // // get the best score
-    // std::ifstream fichier{"best_score.txt"}; 
-    // fichier >> bestScoreStr;
-    // bestScore = std::stoi(bestScoreStr);
-    // fichier.close();
+    // get the best score
+    bestScoreStr = GetBestScore();
 
-    // running = true;
+    running = true;
 }
 
 
 // COLLISIONS
-void Game::CheckCollisionBallWall()
+void Game::ManageCollisionBallWall()
 {
     if (ball.GetRectangle().x < 0) 
     {
@@ -154,33 +143,80 @@ void Game::CheckCollisionBallWall()
     };
 }
 
-void Game::CheckCollisionBallPaddle()
+
+void Game::ManageCollisionBallPaddle()
 {
-    // if (CheckCollisionRecs(ball.GetRectangle(), paddle.GetRectangle()))
-    // {
-    //     if (ball.speedY > 0) //prevent the ball from boncing inside the paddle
-    //     {
-    //         ball.speedY *= -1;
-    //         if (ball.x - paddle.x < paddle.width/2) {
-    //             ball.speedX = -10 * myUtils::abs(ball.x - paddle.x - paddle.width/2) ;
-    //         }
-    //         else {
-    //             ball.speedX = 10 * myUtils::abs(ball.x - paddle.x - paddle.width/2);
-    //         }
-    //     };
-    // };
+    if (CheckCollisionRecs(ball.GetRectangle(), paddle.GetRectangle()))
+    {
+        if (ball.GetSpeed().y > 0) //prevent the ball from boncing inside the paddle
+        {
+            ball.SetYSpeed(-1 * ball.GetSpeed().y);
+            if (ball.GetRectangle().x - paddle.GetRectangle().x < paddle.GetRectangle().width / 2) 
+            {
+                ball.SetXSpeed(-10 * abs(ball.GetRectangle().x - paddle.GetRectangle().x - paddle.GetRectangle().width / 2));
+            }
+            else {
+                ball.SetXSpeed(10 * abs(ball.GetRectangle().x - paddle.GetRectangle().x - paddle.GetRectangle().width / 2));
+            }
+        };
+    };
 }
 
-void Game::CheckCollisionBallBrick()
+
+void Game::ManageCollisionBallBrick()
 {
-    // for (unsigned int k{0}; k < bricksPerLine*bricksPerColumns; ++k)
-    // {
-    //     if (CheckCollisionRecs(Rectangle{ball.x, ball.y, ball.width, ball.height }, Rectangle{bricks[k].x - xGapBetweenBricks/2, bricks[k].y- yGapBetweenBricks/2, bricks[k].width + xGapBetweenBricks/2, bricks[k].height + yGapBetweenBricks/2}))
-    //     {
-    //         ball.speedY *= -1;
-    //         bricks[k].x += 2000;
-    //         ++score;
-    //         scoreStr = std::to_string(score);
-    //     }
-    // };
+    for (unsigned int k{0}; k < numberOfLines * numberOfColumns; ++k)
+    {
+        if (CheckCollisionRecs(ball.GetRectangle(), bricks[k].GetRectangle()))
+        {
+            // bounce
+            ball.SetYSpeed(-1 * ball.GetSpeed().y);
+            // delete brick
+            bricks[k].SetYPosition(-100.0f);
+            // manage score
+            ++score;
+        }
+    };
+}
+
+
+void Game::DrawScore()
+{
+    std::string scoreStr = std::to_string(score);
+    DrawText(scoreStr.c_str(), 330, 30, 30, WHITE);
+}
+
+
+std::string Game::GetBestScore()
+{
+    std::ifstream fichier{"best_score.txt"};
+    std::string value;
+    fichier >> value;
+    fichier.close();
+
+    return value;
+}
+
+
+void Game::SetupBestScoreFile()
+{
+    // Get the USERPROFILE environment variable to find the user's home directory
+    const char* userProfile = std::getenv("USERPROFILE");
+    std::cout << userProfile << std::endl;
+    if (userProfile == nullptr) {
+        std::cout << "Failed to get USERPROFILE!";
+    }
+    // Concatenate the path to documents
+    std::string documentsPath = std::string(userProfile) + "\\documents\\";
+
+    std::ifstream fichierR{documentsPath + "best_score.txt"};
+    if(fichierR.is_open()) {
+        std::string scoreStr {""};
+        fichierR >> scoreStr;
+        if (scoreStr == "")
+        {
+            std::ofstream fichierW{documentsPath + "best_score.txt"};
+            fichierW << "0";
+        }
+    }
 }
