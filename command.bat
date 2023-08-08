@@ -1,5 +1,7 @@
 @echo off
 
+cls
+
 if exist .\debug.exe (
     del .\debug.exe
 )

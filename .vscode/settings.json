@@ -2,6 +2,7 @@
     "files.exclude": {
 		"**/.git": true,
 		"**/.gitattributes": true,
+        "**/.gitignore": true,
         "Makefile" : true,
         "release" : true
 	},
