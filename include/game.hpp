@@ -23,8 +23,8 @@ public:
 
 private:
     void DrawScore();
-    std::string GetBestScore();
-    void SetupBestScoreFile();
+    int unsigned GetBestScore();
+    void SetBestScore(int _score);
     void InitBricks();
     void GameOver();
 
@@ -37,5 +37,5 @@ private:
     Brick bricks[numberOfLines * numberOfColumns];
 
     int unsigned score;
-    std::string bestScoreStr;
+    int unsigned bestScore;
 };

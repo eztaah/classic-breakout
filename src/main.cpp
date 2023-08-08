@@ -12,15 +12,7 @@ int main()
 
     while (!WindowShouldClose())
     {
-        // update
         game.Update();
-
-        // restart
-        if (IsKeyDown(KEY_SPACE) && !game.running) {
-            game.Restart();
-        };
-
-        // Drawing
         game.Draw();
     }
     CloseWindow();
