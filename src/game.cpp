@@ -189,34 +189,30 @@ void Game::DrawScore()
 
 std::string Game::GetBestScore()
 {
-    std::ifstream fichier{"best_score.txt"};
-    std::string value;
-    fichier >> value;
-    fichier.close();
-
-    return value;
-}
-
-
-void Game::SetupBestScoreFile()
-{
     // Get the USERPROFILE environment variable to find the user's home directory
     const char* userProfile = std::getenv("USERPROFILE");
-    std::cout << userProfile << std::endl;
     if (userProfile == nullptr) {
         std::cout << "Failed to get USERPROFILE!";
     }
     // Concatenate the path to documents
-    std::string documentsPath = std::string(userProfile) + "\\documents\\";
+    std::string path = std::string(userProfile) + "\\Documents\\best_score.txt";
 
-    std::ifstream fichierR{documentsPath + "best_score.txt"};
-    if(fichierR.is_open()) {
-        std::string scoreStr {""};
-        fichierR >> scoreStr;
-        if (scoreStr == "")
-        {
-            std::ofstream fichierW{documentsPath + "best_score.txt"};
-            fichierW << "0";
-        }
+    // check if the file already exist
+    std::ifstream rFile(path);
+    if (rFile.is_open())
+    {
+        rFile >> bestScoreStr;
+        rFile.close();
+        return bestScoreStr;
+    }
+    else 
+    {
+        rFile.close();
+        // Create the file if needed
+        std::ofstream wFile;
+        wFile.open(path);
+        wFile << "0";
+        wFile.close();
+        return "0";
     }
 }
