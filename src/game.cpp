@@ -1,13 +1,33 @@
 #include "game.hpp"
 #include "ball.hpp"
 #include "paddle.hpp"
-#include "library.hpp"
 #include "brick.hpp"
 #include <raylib.hpp>
 #include <string>
 #include <fstream>
 #include <iostream>
 #include <cmath>
+#include <filesystem>
+
+
+/// FUNCTIONS ///////////////////
+std::string GetPath()
+{
+    // Get the USERPROFILE environment variable to find the user's home directory & create path
+    const char* userProfile = std::getenv("USERPROFILE");
+    if (userProfile == nullptr) {
+        std::cout << "Failed to get USERPROFILE!";
+    }
+    std::string path = std::string(userProfile) + "\\AppData\\Local\\breakout-best-score.txt";
+    return path;
+}
+
+void DrawScore(int score)
+{
+    std::string scoreStr = std::to_string(score);
+    DrawText(scoreStr.c_str(), 330, 30, 30, WHITE);
+}
+////////////////////////////////
 
 
 Game::Game()
@@ -56,7 +76,7 @@ void Game::Draw()
     // draw best score & score
     std::string bestScoreStr = std::to_string(bestScore);
     DrawText(("Best score : " + bestScoreStr).c_str(), 10, 30, 20, RED);
-    DrawScore();
+    DrawScore(score);
 
     if(running) {
         // Draw ball
@@ -89,36 +109,6 @@ void Game::InitBricks()
 }
 
 
-void Game::GameOver()
-{
-    running = false;
-    if(score > bestScore) {
-        SetBestScore(score);
-    }
-}
-
-void Game::Restart() 
-{
-    // Reset ball, paddle and score
-    ball.SetXPosition(GetScreenWidth() / 2);
-    ball.SetYPosition(GetScreenHeight() / 2);
-    ball.SetXSpeed(30.0f);
-    ball.SetYSpeed(400.0f);
-    paddle.SetXPosition((GetScreenWidth() / 2) - paddle.GetRectangle().width / 2);
-    score = 0;
-    DrawScore();
-
-    //reset bricks
-    InitBricks();
-
-    // get the best score
-    bestScore = GetBestScore();
-
-    running = true;
-}
-
-
-// COLLISIONS
 void Game::ManageCollisionBallWall()
 {
     if (ball.GetRectangle().x < 0) 
@@ -179,21 +169,9 @@ void Game::ManageCollisionBallBrick()
 }
 
 
-void Game::DrawScore()
-{
-    std::string scoreStr = std::to_string(score);
-    DrawText(scoreStr.c_str(), 330, 30, 30, WHITE);
-}
-
-
 int unsigned Game::GetBestScore()
 {
-    // Get the USERPROFILE environment variable to find the user's home directory & create path
-    const char* userProfile = std::getenv("USERPROFILE");
-    if (userProfile == nullptr) {
-        std::cout << "Failed to get USERPROFILE!";
-    }
-    std::string path = std::string(userProfile) + "\\Documents\\best_score.txt";
+    std::string path = GetPath();
 
     // check if the file already exist
     std::ifstream rFile(path);
@@ -217,14 +195,10 @@ int unsigned Game::GetBestScore()
     }
 }
 
+
 void Game::SetBestScore(int _score)
 {
-    // Get the USERPROFILE environment variable to find the user's home directory & create path
-    const char* userProfile = std::getenv("USERPROFILE");
-    if (userProfile == nullptr) {
-        std::cout << "Failed to get USERPROFILE!";
-    }
-    std::string path = std::string(userProfile) + "\\Documents\\best_score.txt";
+    std::string path = GetPath();
 
     // check if the file already exist
     std::ifstream rFile(path);
@@ -240,4 +214,34 @@ void Game::SetBestScore(int _score)
     {
         std::cout << "ERROR" << std::endl;
     }
+}
+
+
+void Game::GameOver()
+{
+    running = false;
+    if(score > bestScore) {
+        SetBestScore(score);
+    }
+}
+
+
+void Game::Restart() 
+{
+    // Reset ball, paddle and score
+    ball.SetXPosition(GetScreenWidth() / 2);
+    ball.SetYPosition(GetScreenHeight() / 2);
+    ball.SetXSpeed(30.0f);
+    ball.SetYSpeed(400.0f);
+    paddle.SetXPosition((GetScreenWidth() / 2) - paddle.GetRectangle().width / 2);
+    score = 0;
+    DrawScore(score);
+
+    //reset bricks
+    InitBricks();
+
+    // get the best score
+    bestScore = GetBestScore();
+
+    running = true;
 }

@@ -24,15 +24,37 @@ void Ball::Draw()
 }
 
 
-// Encapsulation
-Rectangle Ball::GetRectangle() { return {position.x, position.y, width, height}; }
+Rectangle Ball::GetRectangle() 
+{
+    return {position.x, position.y, width, height};
+}
 
-Vector2 Ball::GetSpeed() { return speed; }
 
-void Ball::SetXPosition(float x) { position.x = x; }
+Vector2 Ball::GetSpeed() 
+{
+    return speed;
+}
 
-void Ball::SetYPosition(float y) { position.y = y; }
 
-void Ball::SetXSpeed(float x) { speed.x = x; }
+void Ball::SetXPosition(float x) 
+{
+    position.x = x;
+}
 
-void Ball::SetYSpeed(float y) { speed.y = y; }
+
+void Ball::SetYPosition(float y) 
+{
+    position.y = y;
+}
+
+
+void Ball::SetXSpeed(float x) 
+{
+    speed.x = x;
+}
+
+
+void Ball::SetYSpeed(float y) 
+{
+    speed.y = y;
+}

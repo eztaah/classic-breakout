@@ -7,7 +7,6 @@ public:
     Brick();
     void Draw() const;
 
-    // Encapsulation
     Rectangle GetRectangle();
     void SetColor(Color _color);
     void SetXPosition(float x);

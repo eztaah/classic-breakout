@@ -8,7 +8,6 @@ public:
     void Update();
     void Draw();
 
-    // Encapsulation
     Rectangle GetRectangle();
     Vector2 GetSpeed();
     void SetXPosition(float x);

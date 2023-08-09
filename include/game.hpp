@@ -18,24 +18,22 @@ public:
     Game();
     void Update();
     void Draw();
-    void Restart();
-    bool running;
 
 private:
-    void DrawScore();
-    int unsigned GetBestScore();
-    void SetBestScore(int _score);
     void InitBricks();
-    void GameOver();
-
     void ManageCollisionBallWall();
     void ManageCollisionBallPaddle();
     void ManageCollisionBallBrick();
+    int unsigned GetBestScore();
+    void SetBestScore(int _score);
+    void GameOver();
+    void Restart();
 
     Ball ball;
     Paddle paddle;
     Brick bricks[numberOfLines * numberOfColumns];
 
+    bool running;
     int unsigned score;
     int unsigned bestScore;
 };

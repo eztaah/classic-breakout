@@ -8,7 +8,6 @@ public:
     void Update();
     void Draw();
 
-    // Encapsulation
     Rectangle GetRectangle();
     void SetXPosition(float x);
     void SetYPosition(float y);

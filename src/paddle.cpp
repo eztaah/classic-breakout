@@ -28,9 +28,19 @@ void Paddle::Draw()
 }
 
 
-// Encapsulation
-Rectangle Paddle::GetRectangle() { return {position.x, position.y, width, height}; }
+Rectangle Paddle::GetRectangle() 
+{
+    return {position.x, position.y, width, height};
+}
 
-void Paddle::SetXPosition(float x) { position.x = x; }
 
-void Paddle::SetYPosition(float y) { position.y = y; }
+void Paddle::SetXPosition(float x) 
+{
+    position.x = x;
+}
+
+
+void Paddle::SetYPosition(float y)
+{
+    position.y = y;
+}

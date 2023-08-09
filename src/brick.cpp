@@ -16,12 +16,25 @@ void Brick::Draw() const
 }
 
 
-// Encapsulation
-Rectangle Brick::GetRectangle() { return {position.x, position.y, width, height}; }
+Rectangle Brick::GetRectangle() 
+{
+	return {position.x, position.y, width, height};
+}
 
-void Brick::SetColor(Color _color) {color = _color; }
+
+void Brick::SetColor(Color _color) 
+{
+	color = _color;
+}
 
 
-void Brick::SetXPosition(float x) { position.x = x; }
+void Brick::SetXPosition(float x) 
+{
+	position.x = x;
+}
 
-void Brick::SetYPosition(float y) { position.y = y; }
+
+void Brick::SetYPosition(float y) 
+{
+	position.y = y;
+}
