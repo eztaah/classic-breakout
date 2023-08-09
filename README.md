@@ -1,1 +1,0 @@
--> The raylib library is needed for compiling the project
