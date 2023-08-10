@@ -6,7 +6,7 @@ class Paddle
 public:
     Paddle();
     void Update();
-    void Draw();
+    void Draw() const;
 
     Rectangle GetRectangle();
     void SetXPosition(float x);

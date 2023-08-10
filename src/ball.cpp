@@ -18,7 +18,7 @@ void Ball::Update()
 }
 
 
-void Ball::Draw()
+void Ball::Draw() const
 {
     DrawRectangle(position.x, position.y, width, height, WHITE);
 }

@@ -6,7 +6,7 @@ class Ball
 public:
     Ball();
     void Update();
-    void Draw();
+    void Draw() const;
 
     Rectangle GetRectangle();
     Vector2 GetSpeed();

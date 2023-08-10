@@ -1,3 +1,9 @@
+/*
+
+add comments
+
+*/
+
 #include "game.hpp"
 #include <raylib.hpp>
 #include <iostream>

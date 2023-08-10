@@ -22,7 +22,7 @@ void Paddle::Update()
 }
 
 
-void Paddle::Draw()
+void Paddle::Draw() const
 {
     DrawRectangle(position.x, position.y, width, height, BLUE);
 }
