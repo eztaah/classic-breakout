@@ -22,19 +22,19 @@ Rectangle Brick::GetRectangle()
 }
 
 
-void Brick::SetColor(Color _color) 
+void Brick::SetColor(Color color_) 
 {
-	color = _color;
+	color = color_;
 }
 
 
-void Brick::SetXPosition(float x) 
+void Brick::SetXPosition(float x_) 
 {
-	position.x = x;
+	position.x = x_;
 }
 
 
-void Brick::SetYPosition(float y) 
+void Brick::SetYPosition(float y_) 
 {
-	position.y = y;
+	position.y = y_;
 }

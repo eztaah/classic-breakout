@@ -25,7 +25,7 @@ private:
     void ManageCollisionBallPaddle();
     void ManageCollisionBallBrick();
     int unsigned GetBestScore();
-    void SetBestScore(int _score);
+    void SetBestScore(int score_);
     void GameOver();
     void Restart();
 

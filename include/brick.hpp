@@ -8,9 +8,9 @@ public:
     void Draw() const;
 
     Rectangle GetRectangle();
-    void SetColor(Color _color);
-    void SetXPosition(float x);
-    void SetYPosition(float y);
+    void SetColor(Color color_);
+    void SetXPosition(float x_);
+    void SetYPosition(float y_);
 
 private:
     Vector2 position;

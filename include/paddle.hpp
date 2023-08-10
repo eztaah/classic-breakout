@@ -9,8 +9,8 @@ public:
     void Draw() const;
 
     Rectangle GetRectangle();
-    void SetXPosition(float x);
-    void SetYPosition(float y);
+    void SetXPosition(float x_);
+    void SetYPosition(float y_);
 
 private:
     Vector2 position;

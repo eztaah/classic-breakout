@@ -36,25 +36,25 @@ Vector2 Ball::GetSpeed()
 }
 
 
-void Ball::SetXPosition(float x) 
+void Ball::SetXPosition(float x_) 
 {
-    position.x = x;
+    position.x = x_;
 }
 
 
-void Ball::SetYPosition(float y) 
+void Ball::SetYPosition(float y_) 
 {
-    position.y = y;
+    position.y = y_;
 }
 
 
-void Ball::SetXSpeed(float x) 
+void Ball::SetXSpeed(float x_) 
 {
-    speed.x = x;
+    speed.x = x_;
 }
 
 
-void Ball::SetYSpeed(float y) 
+void Ball::SetYSpeed(float y_) 
 {
-    speed.y = y;
+    speed.y = y_;
 }

@@ -196,7 +196,7 @@ int unsigned Game::GetBestScore()
 }
 
 
-void Game::SetBestScore(int _score)
+void Game::SetBestScore(int score_)
 {
     std::string path = GetPath();
 
@@ -207,7 +207,7 @@ void Game::SetBestScore(int _score)
         rFile.close();
         std::ofstream wFile;
         wFile.open(path);
-        wFile << std::to_string(_score); 
+        wFile << std::to_string(score_); 
         wFile.close();
     }
     else

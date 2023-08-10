@@ -17,7 +17,7 @@ int main()
     Game game = Game();
 
     while (!WindowShouldClose())
-    {
+    { 
         game.Update();
         game.Draw();
     }

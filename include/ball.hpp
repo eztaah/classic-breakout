@@ -10,10 +10,10 @@ public:
 
     Rectangle GetRectangle();
     Vector2 GetSpeed();
-    void SetXPosition(float x);
-    void SetYPosition(float y);
-    void SetXSpeed(float x);
-    void SetYSpeed(float y);
+    void SetXPosition(float x_);
+    void SetYPosition(float y_);
+    void SetXSpeed(float x_);
+    void SetYSpeed(float y_);
 
 private:
     Vector2 position;

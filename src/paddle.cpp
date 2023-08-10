@@ -34,13 +34,13 @@ Rectangle Paddle::GetRectangle()
 }
 
 
-void Paddle::SetXPosition(float x) 
+void Paddle::SetXPosition(float x_) 
 {
-    position.x = x;
+    position.x = x_;
 }
 
 
-void Paddle::SetYPosition(float y)
+void Paddle::SetYPosition(float y_)
 {
-    position.y = y;
+    position.y = y_;
 }
