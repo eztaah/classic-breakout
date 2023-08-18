@@ -27,8 +27,7 @@ A classic breakout game clone.
 cd build 
 ```
 
-2. Compile the project :
-> if you are using the minGW compiler   
+2. Compile the project : (if you are using the minGW compiler)   
 ``` 
 mingw32-make 
 ```
