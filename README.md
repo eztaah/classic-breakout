@@ -1,4 +1,4 @@
-# Breakout Game with Raylib
+# Breakout
 
 A classic breakout game developed using the [Raylib](https://www.raylib.com/) library.
 
