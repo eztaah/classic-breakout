@@ -2,7 +2,7 @@
 
 A classic breakout game developed using the [Raylib](https://www.raylib.com/) library.
 
-![Démonstration de mon jeu](https://github.com/EzTaah/cpp-breakout/blob/main/assets/gameplay.gif)
+![Gameplay](https://github.com/EzTaah/cpp-breakout/blob/main/assets/gameplay.gif)
 
 
 ## Features
@@ -27,17 +27,12 @@ A classic breakout game developed using the [Raylib](https://www.raylib.com/) li
 cd build 
 ```
 
-2. Generate the makefiles :  
-``` 
-cmake -G "MinGW Makefiles" .. 
-```
-
-3. Compile the project :   
+2. Compile the project :   
 ``` 
 mingw32-make 
 ```
 
-4. Run the game :   
+3. Run the game :   
 ```
 .\debug.exe
 ```
