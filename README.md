@@ -24,10 +24,16 @@ cd build
 ```
 
 2. Generate the makefiles :  
-``` cmake -G "MinGW Makefiles" .. ```
+``` 
+cmake -G "MinGW Makefiles" .. 
+```
 
 3. Compile the project :   
-``` mingw32-make ```
+``` 
+mingw32-make 
+```
 
 4. Run the game :   
-``` .\debug.exe ```
+```
+.\debug.exe
+```
