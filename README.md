@@ -2,8 +2,8 @@
 
 A classic breakout game developed using the [Raylib](https://www.raylib.com/) library.
 
-![Breakout Screenshot](path-to-screenshot.png) 
-_Include a screenshot or GIF of your game in action here._
+![Démonstration de mon jeu](https://github.com/EzTaah/cpp-breakout/main/assets/gameplay.gif)
+
 
 ## Features
 - Classic brick-breaking action.
