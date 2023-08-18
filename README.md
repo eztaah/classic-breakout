@@ -18,8 +18,8 @@ A classic breakout game clone.
 ## Informations
 - Game developed using the [Raylib](https://www.raylib.com/) library.
 - Your best score is saved to your local storage. You can find it in the following directory:   
-```C:\Users\USERNAME\AppData\Local```
-<br>
+```C:\Users\USERNAME\AppData\Local```<br>
+
 ## Compilation instructions ( if you are using the minGW compiler)
 
 1. Navigate to the build directory : 
