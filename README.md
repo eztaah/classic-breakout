@@ -16,6 +16,12 @@ _Include a screenshot or GIF of your game in action here._
 
 ---
 
+
+
+
+
+
+
 ### Compilation instructions
 
 1. Navigate to the build directory :  
