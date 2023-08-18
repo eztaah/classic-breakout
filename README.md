@@ -14,13 +14,14 @@ A classic breakout game developed using the [Raylib](https://www.raylib.com/) li
 
 ---
 
-## Building and Development
+# Building and Development
 
-### Informations
+## Informations
+- **Game developed using the Raylib library.**
 - Your best score is saved to your local storage. You can find it in the following directory:   
 ```C:\Users\USERNAME\AppData\Local```
 
-### Compilation instructions ( if you are using the minGW compiler)
+## Compilation instructions ( if you are using the minGW compiler)
 
 1. Navigate to the build directory : 
 ```
