@@ -12,10 +12,10 @@ _Include a screenshot or GIF of your game in action here._
 ## Keys
 - Use `Q` to move the paddle left and `D` to move it right.
 
-
 ---
+.<br>
 
-<br>### Building and Development
+### Building and Development
 
 #### Informations
 - Your best score is automatically saved to your local storage. You can find it in the following directory:   
