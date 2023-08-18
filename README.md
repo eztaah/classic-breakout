@@ -5,10 +5,10 @@ A classic breakout game clone
 ![Gameplay](https://github.com/EzTaah/cpp-breakout/blob/main/assets/gameplay.gif)
 
 
-## Features
+# Features
 - Persistent high score saving.
 
-## Controls
+# Controls
 - Use `Q` to move the paddle left and `D` to move it right.
 
 ---
