@@ -2,7 +2,7 @@
 
 A classic breakout game developed using the [Raylib](https://www.raylib.com/) library.
 
-![Démonstration de mon jeu](https://github.com/EzTaah/cpp-breakout/main/assets/gameplay.gif)
+![Démonstration de mon jeu](https://github.com/EzTaah/cpp-breakout/blob/main/assets/gameplay.gif)
 
 
 ## Features
