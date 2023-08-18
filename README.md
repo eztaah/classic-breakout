@@ -17,7 +17,7 @@ A classic breakout game developed using the [Raylib](https://www.raylib.com/) li
 ## Building and Development
 
 ### Informations
-- Your best score is automatically saved to your local storage. You can find it in the following directory:   
+- Your best score is saved to your local storage. You can find it in the following directory:   
 ```C:\Users\USERNAME\AppData\Local```
 
 ### Compilation instructions ( if you are using the minGW compiler)
