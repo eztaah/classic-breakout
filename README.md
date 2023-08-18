@@ -21,14 +21,14 @@ A classic breakout game clone.
 ```C:\Users\USERNAME\AppData\Local```
 
 ## Compilation instructions
-> if you are using the minGW compiler
 
 1. Navigate to the build directory : 
 ```
 cd build 
 ```
 
-2. Compile the project :   
+2. Compile the project :
+> if you are using the minGW compiler   
 ``` 
 mingw32-make 
 ```
