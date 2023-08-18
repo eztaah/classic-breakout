@@ -5,9 +5,9 @@
 Ball::Ball()
 {
     position = {GetScreenWidth() / 3.0f, GetScreenHeight() / 2.0f};
-    speed = {30.0f, 400.0f};
-	width = 7.0f;
-	height = 7.0f;
+    speed = {20.0f, 400.0f};
+    width = 7.0f;
+    height = 7.0f;
 }
 
 
