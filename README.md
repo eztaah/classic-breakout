@@ -15,11 +15,11 @@ _Include a screenshot or GIF of your game in action here._
 ```C:\Users\USERNAME\AppData\Local```
 
 ---
-<br><br><br>
+
 
 ### Compilation instructions
 
-1. Navigate to the build directory :  
+1. Navigate to the build directory :<br><br><br>  
 ```
 cd build 
 ```
