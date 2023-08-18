@@ -17,9 +17,7 @@ A classic breakout game developed using the [Raylib](https://www.raylib.com/) li
 # Building and Development
 
 ## Informations
-> **Remarque:** Ceci est une remarque importante.
-
-- Game developed using the Raylib library.
+> **Game developed using the Raylib library.**
 - Your best score is saved to your local storage. You can find it in the following directory:   
 ```C:\Users\USERNAME\AppData\Local```
 
