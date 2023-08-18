@@ -10,9 +10,8 @@ _Include a screenshot or GIF of your game in action here._
 - Persistent high score saving.
 
 ### Keys
-- Use `Q` to move the paddle left and `D` to move it right.
+- Use `Q` to move the paddle left and `D` to move it right. <br>
 
----
 ---
 
 ## Building and Development
