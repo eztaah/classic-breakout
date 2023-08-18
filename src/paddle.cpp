@@ -4,10 +4,10 @@
 
 Paddle::Paddle()
 {
-    position = {(GetScreenWidth() / 2.0f) - width / 2.0f, GetScreenHeight() - 30.0f};
     speed = 10.0f;
-	width = 70.0f;
-	height = 10.0f;
+    width = 70.0f;
+    height = 10.0f;
+    position = {(GetScreenWidth() / 2.0f) - (width / 2.0f), GetScreenHeight() - 30.0f};
 }
 
 
