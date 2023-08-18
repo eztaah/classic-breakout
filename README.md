@@ -8,7 +8,7 @@ A classic breakout game clone
 ## Features
 - Persistent high score saving.
 
-### Keys
+## Controls
 - Use `Q` to move the paddle left and `D` to move it right.
 
 ---
