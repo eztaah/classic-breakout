@@ -15,10 +15,7 @@ _Include a screenshot or GIF of your game in action here._
 ```C:\Users\USERNAME\AppData\Local```
 
 ---
-<!-- -->
-<!-- -->
-<!-- -->
-
+<br><br><br>
 
 ### Compilation instructions
 
