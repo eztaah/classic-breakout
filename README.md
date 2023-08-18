@@ -18,14 +18,14 @@ _Include a screenshot or GIF of your game in action here._
 
 ### Compilation instructions
 
-1. Navigate to the build directory:
+1. Navigate to the build directory :  
 ``` cd build ```
 
-2. Generate the makefiles :
+2. Generate the makefiles :  
 ``` cmake -G "MinGW Makefiles" .. ```
 
-3. Compile the project : 
+3. Compile the project :   
 ``` mingw32-make ```
 
-4. Run the game : 
+4. Run the game :   
 ``` .\debug.exe ```
