@@ -14,7 +14,9 @@ _Include a screenshot or GIF of your game in action here._
 
 - Use `Q` to move the paddle left and `D` to move it right.
 
-Your best score is automatically saved to your local storage. You can find it in the following directory:
+- Your best score is automatically saved to your local storage. You can find it in the following directory:
+C:\Users\USERNAME\AppData\Local.
+
 
 ## Compilation instructions
 
@@ -42,3 +44,4 @@ Execute the following command:
 ```
 .\debug.exe
 ```
+
