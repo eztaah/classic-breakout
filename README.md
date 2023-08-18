@@ -14,12 +14,12 @@ _Include a screenshot or GIF of your game in action here._
 - Your best score is automatically saved to your local storage. You can find it in the following directory:   
 ```C:\Users\USERNAME\AppData\Local```
 
----
+---<br><br><br> 
 
 
 ### Compilation instructions
 
-1. Navigate to the build directory :<br><br><br>  
+1. Navigate to the build directory : 
 ```
 cd build 
 ```
