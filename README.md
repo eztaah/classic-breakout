@@ -1,12 +1,11 @@
 # Breakout
 
-A classic breakout game developed using the [Raylib](https://www.raylib.com/) library.
+A classic breakout game clone
 
 ![Gameplay](https://github.com/EzTaah/cpp-breakout/blob/main/assets/gameplay.gif)
 
 
 ## Features
-- Classic brick-breaking action.
 - Persistent high score saving.
 
 ### Keys
@@ -17,7 +16,7 @@ A classic breakout game developed using the [Raylib](https://www.raylib.com/) li
 # Building and Development
 
 ## Informations
-> **Game developed using the Raylib library.**
+- Game developed using the [Raylib](https://www.raylib.com/) library.
 - Your best score is saved to your local storage. You can find it in the following directory:   
 ```C:\Users\USERNAME\AppData\Local```
 
