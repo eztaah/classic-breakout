@@ -24,17 +24,19 @@ A classic breakout game clone.
 
 ## Compilation instructions
 
-1. Navigate to the build directory : 
+1. Open a PowerShell/cmd terminal and navigate to the project's directory.
+
+2. Navigate to the build directory : 
 ```
 cd build 
 ```
 
-2. Compile the project : (assuming that you use the minGW compiler)   
+3. Compile the project : (assuming that you use the minGW compiler)   
 ``` 
 mingw32-make 
 ```
 
-3. Run the game :   
+4. Run the game :   
 ```
 .\debug.exe
 ```
