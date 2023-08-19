@@ -6,7 +6,8 @@ A classic breakout game clone.
 
 
 ### Controls
-- Use `Q` to move the paddle left and `D` to move it right.
+- Use `Q` to move the paddle left and `D` to move it right
+- Press `space` to restart
 
 ---
 
