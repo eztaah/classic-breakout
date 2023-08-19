@@ -19,7 +19,7 @@ A classic breakout game clone.
 ```C:\Users\USERNAME\AppData\Local```
 
 ## Prerequisites
-- Have a compiler installed on your computer.
+- Ensure you have a compiler installed on your computer.
 - There's no need to install Raylib separately. It is already precompiled and stored in the 'lib' folder.
 
 ## Compilation instructions
