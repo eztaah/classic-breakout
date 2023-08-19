@@ -15,8 +15,12 @@ A classic breakout game clone.
 
 ## Informations
 - Game developed using the [Raylib](https://www.raylib.com/) library.
-- Your best score is saved to your local storage. You can find it in the following directory:   
+- Your best score is saved to your local storage. You can find it in the following directory:  
 ```C:\Users\USERNAME\AppData\Local```
+
+## Prerequisites
+- Have a compiler installed on your computer.
+- There's no need to install Raylib separately. It is already precompiled and stored in the 'lib' folder.
 
 ## Compilation instructions
 
